@@ -18,27 +18,27 @@ Local MVP for secure encryption with XOR shares. All shares are required to reco
 ### Encrypt
 Writes the encrypted file and generates shares in a folder.
 
-```powershell
+```
 cargo run -- encrypt --input .\plain.txt --output .\sealed.bin --shares-dir .\shares --shares 15
 ```
 
 With custom chunk size (bytes):
 
-```powershell
+```
 cargo run -- encrypt --input .\plain.txt --output .\sealed.bin --shares-dir .\shares --shares 15 --chunk-size 1048576
 ```
 
 ### Decrypt
 Reconstructs the master key from all shares and decrypts the file.
 
-```powershell
+```
 cargo run -- decrypt --input .\sealed.bin --output .\plain.out.txt --shares-dir .\shares
 ```
 
 ### Rotate (key rotation)
 Re-encrypts the data with a new master key and writes new shares.
 
-```powershell
+```
 cargo run -- rotate --input .\sealed.bin --output .\sealed.new.bin --old-shares-dir .\shares --new-shares-dir .\shares_new --shares 15
 
 ## Server simulation for shares
@@ -55,20 +55,20 @@ This creates folders like `servers\server_00`, `servers\server_01`, etc.
 
 ### Decrypt with servers
 
-```powershell
+```
 cargo run -- decrypt --input .\sealed.bin --output .\plain.out.txt --servers-root .\servers
 ```
 
 ### Rotate with servers
 
-```powershell
+```
 cargo run -- rotate --input .\sealed.bin --output .\sealed.new.bin --old-servers-root .\servers --new-servers-root .\servers_new --servers 5 --shares 15
 ```
 ```
 
 ## Tests
 
-```powershell
+```
 cargo test
 ```
 
