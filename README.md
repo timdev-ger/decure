@@ -40,6 +40,7 @@ Re-encrypts the data with a new master key and writes new shares.
 
 ```
 cargo run -- rotate --input .\sealed.bin --output .\sealed.new.bin --old-shares-dir .\shares --new-shares-dir .\shares_new --shares 15
+```
 
 ## Server simulation for shares
 Instead of a single shares directory, you can distribute shares across multiple
@@ -47,7 +48,7 @@ local “server” folders under a root path.
 
 ### Encrypt with servers
 
-```powershell
+```
 cargo run -- encrypt --input .\plain.txt --output .\sealed.bin --servers-root .\servers --servers 5 --shares 15
 ```
 
@@ -64,7 +65,7 @@ cargo run -- decrypt --input .\sealed.bin --output .\plain.out.txt --servers-roo
 ```
 cargo run -- rotate --input .\sealed.bin --output .\sealed.new.bin --old-servers-root .\servers --new-servers-root .\servers_new --servers 5 --shares 15
 ```
-```
+
 
 ## Tests
 
